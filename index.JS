@@ -1,4 +1,5 @@
 const imageContainer = document.getElementById("image-container");
+const currentImage = document.getElementById("current-image");
 const prevButton = document.getElementById("prev-button");
 const nextButton = document.getElementById("next-button");
 let currentIndex = 0;
@@ -15,13 +16,8 @@ const srcArray = [
 ];
 
 function showCurrentImage() {
-  imageContainer.innerHTML = "";
-
-  const img = document.createElement("img");
-  img.src = srcArray[currentIndex];
-  img.alt = "Photo " + (currentIndex + 1);
-
-  imageContainer.appendChild(img);
+  currentImage.src = srcArray[currentIndex];
+  currentImage.alt = "Photo " + (currentIndex + 1);
 }
 
 function imgNext() {
@@ -36,7 +32,6 @@ function imgPrev() {
   currentIndex--;
   if (currentIndex < 0) {
     currentIndex = 0;
-    
   }
   showCurrentImage();
 }
